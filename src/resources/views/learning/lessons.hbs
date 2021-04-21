@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h1 style="margin-top: 18px;">Khóa học <span style="text-transform: uppercase;">{{tag}}</span>: {{name}}</h1>
+
+    <div class="mt-4">
+        <div class="pen" style="display:flex;justify-content: space-between">
+            <iframe class="col-sm-8 col-lg-8 embed-responsive-item" width="660" height="415"
+                src="https://www.youtube.com/embed/{{lesson}}" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <div class="right">
+                {{#each lessons}}
+                <div class="col-sm-2 col-lg-2" style="">
+                    <div class="alert alert-primary float-left" role="alert">
+                        <img class="card-img-top" style="width: 80px;" src="{{this.image}}" alt="{{this.name}}">
+                        <a href="/learning/{{this.tag}}/{{this.slug}}">Bài {{sum @index 1}}. {{this.name}}</a>
+                    </div>
+
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</div>

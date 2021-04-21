@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="mt-4">
+        <h1>Thêm câu hỏi vào bộ đề</h1>
+
+        <form method="POST" action="/exam/stored">
+            <div class="form-group">
+                <label for="cauhoi">Câu hỏi</label>
+                <input type="text" class="form-control" id="cauhoi" name="cauhoi">
+            </div>
+            <div class="form-group">
+                <label for="dapan1">Đáp án A:</label>
+                <input type="text" class="form-control" id="dapan1" name="dapan1" onchange='onLoad();'>
+            </div>
+            <div class="form-group">
+                <label for="dapan2">Đáp án B:</label>
+                <input type="text" class="form-control" id="dapan2" name="dapan2">
+            </div>
+            <div class="form-group">
+                <label for="dapan3">Đáp án C:</label>
+                <input type="text" class="form-control" id="dapan3" name="dapan3">
+            </div>
+            <div class="form-group">
+                <label for="dapan4">Đáp án D:</label>
+                <input type="text" class="form-control" id="dapan4" name="dapan4">
+            </div>
+            <div class="form-group">
+                <label for="tag">Khóa</label>
+                <select class="form-control" id="tag" name="tag">
+                    {{#each tag}}
+                    <option>{{this.tag}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dapandung">Đáp án đúng</label>
+                <select class="form-control" id="dapandung" name="dapandung" onchange='onLoad();'>
+                    <option id="a" value="">A</option>
+                    <option id="b" value="">B</option>
+                    <option id="c" value="">C</option>
+                    <option id="d" value="">D</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-danger">Thêm</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function onLoad() {
+        var ddl = document.getElementById("dapandung");
+        var dapan1 = document.getElementById("dapan1");
+        var dapan2 = document.getElementById("dapan2");
+        var dapan3 = document.getElementById("dapan3");
+        var dapan4 = document.getElementById("dapan4");
+        var selectedValue = ddl.options[ddl.selectedIndex].id;
+        if (selectedValue == "a") ddl.options[ddl.selectedIndex].value = dapan1.value;
+        if (selectedValue == "b") ddl.options[ddl.selectedIndex].value = dapan2.value;
+        if (selectedValue == "c") ddl.options[ddl.selectedIndex].value = dapan3.value;
+        if (selectedValue == "d") ddl.options[ddl.selectedIndex].value = dapan4.value;
+    }
+</script>

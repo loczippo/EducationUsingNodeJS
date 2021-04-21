@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="mt-4">
+        <h2>Bộ đề trắc nghiệm môn: {{tag}}</h2>
+
+        <form method="POST" action="/exam/{{tag}}/thithu">
+            {{#each exam}}
+
+            <h4>Câu 1: </h4>
+            <div class="form-group">
+                <input name="cauhoi" id="cauhoi" type="text" class="form-control" value="{{this.cauhoi}}" readonly="true">
+            </div>
+            <h5>Đáp án: </h5>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <input name="check[]" id="check" type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input name="dapan" id="dapan" type="text" class="form-control" value="{{this.dapan1}}" readonly="true">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <input name="check[]" id="check" type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input name="dapan" id="dapan" type="text" class="form-control" value="{{this.dapan2}}" readonly="true">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <input name="check[]" id="check" type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input name="dapan" id="dapan" type="text" class="form-control" value="{{this.dapan3}}" readonly="true">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                    <input name="check[]" id="check" type="radio" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input name="dapan" id="dapan" type="text" class="form-control" value="{{this.dapan4}}" readonly="true">
+            </div>
+            {{/each}}
+            
+            <button type="submit" class="btn btn-danger">Hoàn thành</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+<div class="container mt-4">
+    <div class="row">
+        {{#each courses}}
+        <div class="col-sm-12 col-md-4 col-lg-4" style="max-width: 400px">
+            <div class="card text-right">
+                <a href="/courses/{{this.slug}}" class="inner">
+                    <img src="https://img.youtube.com/vi/{{this.videoId}}/maxresdefault.jpg" class="card-img-top" alt="{{this.name}}">
+                <div class="card-body">
+                    <h2 class="card-title text-left">{{this.name}}</h2>
+                    </a>
+                    <p class="card-text text-left">{{this.description}}</p>
+                    <a href="/exam/{{this.tag}}/thithu" class="btn btn-danger hvr-float">Thi thử</a>
+                    <a href="/exam/{{this.tag}}/thithat" class="btn btn-danger hvr-float">Thi luôn</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+            <div>
+                <p class="text-center">Hiện tại chưa có khóa học nào</p>
+            </div>
+        {{/each}}
+        
+    </div>
+</div>

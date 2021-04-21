@@ -1,0 +1,38 @@
+{{!-- <div class="mt-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <a class="btn btn-danger" href="/learning/{{course.tag}}">HỌC NGAY</a>
+            <ul>
+                <li>{{course.level}}</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <h1>{{course.name}}</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>{{course.description}}</p>
+        </div>
+    </div>
+</div> --}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-lg-5">
+            <a style="width: 150px;height: 40px" class="btn btn-danger" href="/learning/{{course.tag}}">HỌC NGAY</a>
+            <ul style=";padding-left:30px">
+                <li>{{course.level}}</li>
+                <li>Có tổng số <b>{{sobaihoc}}</b> bài học</li>
+            </ul>
+            <h2>Nội dung khóa học: </h2>
+            {{#each lessons}}
+            <ul style=";padding-left:30px">
+                <li>Bài {{sum @index 1}}. {{this.name}}</li>
+            </ul>
+            {{/each}}
+        </div>
+        <div class="col col-sm-7 col-lg-7">
+            <h1>Khóa học: {{course.name}}</h1>
+            <p>{{course.description}}</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

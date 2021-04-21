@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="container">
+    <a href="/" class="navbar-brand">Education</a>
+
+    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </button>
+
+    <div id="main-nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Trang chủ <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/danhsachkhoahoc">Danh sách khóa học</a>
+        </li>
+         {{#if username}}
+         <li class="nav-item">
+          <a class="nav-link" href="/exam">Làm bài thi</a>
+        </li>
+         {{/if}}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Liên hệ</a>
+        </li>
+        {{#unless username}}
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/login">Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signup">Đăng ký</a>
+        </li>
+        {{/unless}}
+        {{#if username}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><img class="img-fluid" width="30" src="/img/user.png" alt="Responsive image" alt=""> {{username}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">{{coin}} Coin</a>
+            <a class="dropdown-item" href="/auth/{{id}}/changepass">Đổi mật khẩu</a>
+            <a class="dropdown-item" href="/auth/logout">Đăng xuất</a>
+          </div>
+        </li>
+        {{/if}}
+        {{#if isAdmin}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">PANEL
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/courses/create">Đăng khóa học</a>
+            <a class="dropdown-item" href="/learning/create">Đăng bài học</a>
+            <a class="dropdown-item" href="/exam/create">Tạo câu hỏi</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/manage/stored/courses">Quản lý khóa học</a>
+            <a class="dropdown-item" href="/manage/stored/lessons">Quản lý bài học</a>
+            <a class="dropdown-item" href="/manage/stored/users">Quản lý tài khoản</a>
+            <a class="dropdown-item" href="/manage/stored/exams">Ngân hàng đề thi</a>
+          </div>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
